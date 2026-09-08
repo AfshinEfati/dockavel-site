@@ -209,3 +209,8 @@ const revealObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
 
 applyLanguage(currentLanguage);
+
+const expandedLanding = document.createElement('script');
+expandedLanding.src = './assets/js/sections.js';
+expandedLanding.defer = true;
+document.body.appendChild(expandedLanding);
