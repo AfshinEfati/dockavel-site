@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080d12">
+  <meta name="description" content="Dockavel is a clean, multi-project local development stack for Laravel and Node.js.">
+  <title>Dockavel — clean local development</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+  <div class="page-noise" aria-hidden="true"></div>
+  <div class="page-glow page-glow-a" aria-hidden="true"></div>
+  <div class="page-glow page-glow-b" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#top" aria-label="Dockavel home">
+        <span class="brand-mark">&gt;_</span>
+        <span class="brand-name">dockavel</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#features" data-i18n="nav.features">Features</a>
+        <a href="#architecture" data-i18n="nav.architecture">Architecture</a>
+        <a href="./docs/" data-i18n="nav.docs">Docs</a>
+        <a href="https://github.com/AfshinEfati/dockavel" target="_blank" rel="noreferrer">GitHub</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="language-switch" type="button" id="languageSwitch" aria-label="Switch language">
+          <span class="language-current">EN</span>
+          <span class="language-divider">/</span>
+          <span>فا</span>
+        </button>
+        <button class="menu-button" type="button" id="menuButton" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow">
+            <span class="status-dot"></span>
+            <span data-i18n="hero.eyebrow">Local development stack · Laravel + Node.js</span>
+          </div>
+
+          <h1 data-i18n="hero.title">Local development,<br>without the mess.</h1>
+          <p class="hero-lead" data-i18n="hero.lead">
+            Run multiple Laravel and Node.js projects on one clean Docker stack, route every project to the right runtime, and keep network diagnostics close when the internet is not.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#quick-start">
+              <span data-i18n="hero.start">Get started</span>
+              <span class="button-arrow">→</span>
+            </a>
+            <a class="button button-ghost" href="https://github.com/AfshinEfati/dockavel" target="_blank" rel="noreferrer">
+              <span class="github-dot" aria-hidden="true"></span>
+              <span data-i18n="hero.github">View on GitHub</span>
+            </a>
+          </div>
+
+          <div class="stack-pills" aria-label="Supported stack">
+            <span>PHP 8.2 → 8.5</span>
+            <span>MySQL 8</span>
+            <span>PostgreSQL 17</span>
+            <span>Redis 7</span>
+            <span>Node.js 24</span>
+          </div>
+        </div>
+
+        <div class="terminal-card reveal reveal-delay-1" aria-label="Dockavel terminal preview">
+          <div class="terminal-topbar">
+            <div class="terminal-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="terminal-title">dockavel — bash</div>
+            <div class="terminal-tabs" role="tablist" aria-label="Terminal examples">
+              <button class="terminal-tab active" type="button" data-terminal="doctor" role="tab">doctor</button>
+              <button class="terminal-tab" type="button" data-terminal="project" role="tab">project:add</button>
+            </div>
+          </div>
+
+          <div class="terminal-body" id="terminalDoctor">
+            <div class="terminal-line command"><span class="prompt">$</span> ./dockavel doctor</div>
+            <div class="terminal-gap"></div>
+            <div class="terminal-line muted">Dockavel Doctor</div>
+            <div class="terminal-line muted">===============</div>
+            <div class="terminal-gap"></div>
+            <div class="terminal-line"><span class="term-label">Docker daemon</span><span class="term-ok">✓ reachable</span></div>
+            <div class="terminal-line"><span class="term-label">PHP 8.2</span><span class="term-ok">✓ healthy</span></div>
+            <div class="terminal-line"><span class="term-label">PHP 8.5</span><span class="term-ok">✓ healthy</span></div>
+            <div class="terminal-line"><span class="term-label">IranServer</span><span class="term-ok">✓ HTTP 200</span></div>
+            <div class="terminal-line"><span class="term-label">Composer</span><span class="term-ok">✓ HTTP 200</span></div>
+            <div class="terminal-line"><span class="term-label">npm</span><span class="term-ok">✓ HTTP 200</span></div>
+            <div class="terminal-gap"></div>
+            <div class="terminal-line term-note">→ read-only diagnostics, zero config changes</div>
+          </div>
+
+          <div class="terminal-body hidden" id="terminalProject">
+            <div class="terminal-line command"><span class="prompt">$</span> ./dockavel project:add</div>
+            <div class="terminal-gap"></div>
+            <div class="terminal-line"><span class="term-muted">Project</span> booking-api</div>
+            <div class="terminal-line"><span class="term-muted">Detected</span> <span class="term-ok">Laravel</span></div>
+            <div class="terminal-line"><span class="term-muted">Domain</span> booking.local</div>
+            <div class="terminal-line"><span class="term-muted">Runtime</span> PHP 8.5</div>
+            <div class="terminal-line"><span class="term-muted">Database</span> PostgreSQL 17</div>
+            <div class="terminal-line"><span class="term-muted">Redis</span> enabled</div>
+            <div class="terminal-gap"></div>
+            <div class="terminal-line term-ok">✓ Nginx configuration validated</div>
+            <div class="terminal-line term-ok">✓ Project registered</div>
+            <div class="terminal-gap"></div>
+            <div class="terminal-line term-note">127.0.0.1 booking.local</div>
+          </div>
+
+          <div class="terminal-footer">
+            <span class="terminal-footer-dot"></span>
+            <span data-i18n="hero.terminalFooter">Designed for real local environments</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container trust-strip reveal reveal-delay-2">
+        <span data-i18n="trust.label">One stack. Multiple projects. Only the services you actually need.</span>
+        <div class="trust-line"></div>
+      </div>
+    </section>
+
+    <section class="section-shell problem-section">
+      <div class="container">
+        <div class="section-heading narrow reveal">
+          <span class="section-kicker" data-i18n="problem.kicker">Why Dockavel?</span>
+          <h2 data-i18n="problem.title">Your local stack should help you ship, not become another project.</h2>
+          <p data-i18n="problem.lead">Dockavel keeps the useful automation and leaves the configuration maze behind.</p>
+        </div>
+
+        <div class="problem-grid">
+          <article class="problem-card reveal">
+            <span class="card-index">01</span>
+            <h3 data-i18n="problem.multiTitle">Different runtimes, one workspace</h3>
+            <p data-i18n="problem.multiText">Run PHP 8.2 and PHP 8.5 side by side without cloning an entire infrastructure stack per project.</p>
+            <div class="mini-code"><span>legacy.local</span><b>→</b><span>php82:9000</span></div>
+            <div class="mini-code"><span>api.local</span><b>→</b><span>php85:9000</span></div>
+          </article>
+
+          <article class="problem-card reveal reveal-delay-1">
+            <span class="card-index">02</span>
+            <h3 data-i18n="problem.networkTitle">Networks are not always reliable</h3>
+            <p data-i18n="problem.networkText">Use explicit regional mirrors and diagnose Docker, Debian, Composer, npm, DNS and route problems without hidden fallbacks.</p>
+            <div class="health-row"><span>Docker registry</span><span class="health-ok">200 / 401 ✓</span></div>
+            <div class="health-row"><span>Composer</span><span class="health-ok">200 ✓</span></div>
+          </article>
+
+          <article class="problem-card reveal reveal-delay-2">
+            <span class="card-index">03</span>
+            <h3 data-i18n="problem.projectTitle">Projects should know their runtime</h3>
+            <p data-i18n="problem.projectText">Keep tiny per-project metadata and let Dockavel generate routing instead of memorizing container names.</p>
+            <pre class="metadata-preview"><code>php: "8.5"
+database: "postgres"
+redis: true
+node: true</code></pre>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell" id="features">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="section-kicker" data-i18n="features.kicker">Core capabilities</span>
+          <h2 data-i18n="features.title">Useful automation. Small surface area.</h2>
+          <p data-i18n="features.lead">Dockavel stays opinionated: features belong in the core when they make setup faster, project management simpler, or debugging easier.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card feature-wide reveal">
+            <div class="feature-icon">&gt;_</div>
+            <div>
+              <span class="feature-tag">PROJECT MANAGER</span>
+              <h3 data-i18n="features.managerTitle">Register, edit, list and remove projects</h3>
+              <p data-i18n="features.managerText">Dockavel detects Laravel or Node.js, stores minimal metadata, generates Nginx config, validates it and reloads safely.</p>
+            </div>
+            <div class="feature-command-stack">
+              <code>./dockavel project:add</code>
+              <code>./dockavel project:edit booking-api</code>
+              <code>./dockavel project:remove booking-api</code>
+            </div>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon">8.x</div>
+            <span class="feature-tag">MULTI-RUNTIME</span>
+            <h3 data-i18n="features.phpTitle">PHP 8.2 → 8.5 together</h3>
+            <p data-i18n="features.phpText">Enable only the versions you need. Nginx routes each local domain to the correct FPM service.</p>
+          </article>
+
+          <article class="feature-card reveal reveal-delay-1">
+            <div class="feature-icon">◎</div>
+            <span class="feature-tag">DIAGNOSTICS</span>
+            <h3 data-i18n="features.doctorTitle">Doctor that does not “fix” behind your back</h3>
+            <p data-i18n="features.doctorText">Read-only checks for Docker, WSL, ports, stack health and source connectivity, including IPv4-route hints.</p>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon">↯</div>
+            <span class="feature-tag">REGIONAL SOURCES</span>
+            <h3 data-i18n="features.sourceTitle">Explicit download sources</h3>
+            <p data-i18n="features.sourceText">Official, IranServer, Runflare, China or custom endpoints. A regional preset does not silently fall back elsewhere.</p>
+          </article>
+
+          <article class="feature-card reveal reveal-delay-1">
+            <div class="feature-icon">DB</div>
+            <span class="feature-tag">SHARED SERVICES</span>
+            <h3 data-i18n="features.servicesTitle">Only what the project needs</h3>
+            <p data-i18n="features.servicesText">MySQL, PostgreSQL, Redis, Node.js, phpMyAdmin and pgAdmin are optional Compose profiles.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell project-showcase">
+      <div class="container showcase-grid">
+        <div class="showcase-copy reveal">
+          <span class="section-kicker" data-i18n="manager.kicker">Project-aware by design</span>
+          <h2 data-i18n="manager.title">Tiny metadata. Predictable routing.</h2>
+          <p data-i18n="manager.text">Each registered project keeps just enough information for Dockavel to understand its domain, runtime and shared services.</p>
+
+          <div class="showcase-points">
+            <div><span class="check">✓</span><span data-i18n="manager.point1">No giant project configuration file</span></div>
+            <div><span class="check">✓</span><span data-i18n="manager.point2">Nginx validation before reload</span></div>
+            <div><span class="check">✓</span><span data-i18n="manager.point3">Rollback when generated config fails</span></div>
+            <div><span class="check">✓</span><span data-i18n="manager.point4">Removing registration never deletes source code</span></div>
+          </div>
+        </div>
+
+        <div class="metadata-window reveal reveal-delay-1">
+          <div class="metadata-titlebar">
+            <div><span class="file-dot"></span>.dockavel.yml</div>
+            <span>booking-api</span>
+          </div>
+          <pre><code><span class="syntax-key">version</span>: <span class="syntax-number">1</span>
+<span class="syntax-key">name</span>: <span class="syntax-string">"booking-api"</span>
+<span class="syntax-key">type</span>: <span class="syntax-string">"laravel"</span>
+<span class="syntax-key">path</span>: <span class="syntax-string">"booking-api"</span>
+<span class="syntax-key">domain</span>: <span class="syntax-string">"booking.local"</span>
+<span class="syntax-key">php</span>: <span class="syntax-string">"8.5"</span>
+<span class="syntax-key">database</span>: <span class="syntax-string">"postgres"</span>
+<span class="syntax-key">redis</span>: <span class="syntax-bool">true</span>
+<span class="syntax-key">node</span>: <span class="syntax-bool">true</span></code></pre>
+          <div class="metadata-footer">
+            <span>Nginx</span>
+            <code>booking.local → php85:9000</code>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell" id="architecture">
+      <div class="container">
+        <div class="section-heading narrow reveal">
+          <span class="section-kicker" data-i18n="architecture.kicker">Architecture</span>
+          <h2 data-i18n="architecture.title">One shared stack, clear boundaries.</h2>
+          <p data-i18n="architecture.lead">Applications share infrastructure without losing runtime-level routing.</p>
+        </div>
+
+        <div class="architecture-board reveal">
+          <div class="arch-column">
+            <span class="arch-label" data-i18n="architecture.requests">Local domains</span>
+            <div class="arch-node"><strong>legacy.local</strong><small>Laravel</small></div>
+            <div class="arch-node"><strong>api.local</strong><small>Laravel</small></div>
+            <div class="arch-node"><strong>frontend.local</strong><small>Node.js</small></div>
+          </div>
+
+          <div class="arch-flow"><span>→</span><span>→</span><span>→</span></div>
+
+          <div class="arch-column arch-center">
+            <span class="arch-label">Gateway</span>
+            <div class="arch-nginx">
+              <span class="nginx-badge">NGINX</span>
+              <strong>:80</strong>
+              <small data-i18n="architecture.routing">project-aware routing</small>
+            </div>
+          </div>
+
+          <div class="arch-flow"><span>→</span><span>→</span><span>→</span></div>
+
+          <div class="arch-column">
+            <span class="arch-label">Runtimes</span>
+            <div class="arch-node runtime-node"><strong>php82:9000</strong><small>PHP 8.2</small></div>
+            <div class="arch-node runtime-node"><strong>php85:9000</strong><small>PHP 8.5</small></div>
+            <div class="arch-node runtime-node"><strong>node:3000</strong><small>Node.js 24</small></div>
+          </div>
+
+          <div class="arch-services">
+            <span>MySQL 8</span><span>PostgreSQL 17</span><span>Redis 7</span><span>phpMyAdmin</span><span>pgAdmin</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell source-section">
+      <div class="container source-grid">
+        <div class="source-copy reveal">
+          <span class="section-kicker" data-i18n="sources.kicker">Regional-source aware</span>
+          <h2 data-i18n="sources.title">Same stack. Explicit route to the internet.</h2>
+          <p data-i18n="sources.text">Choose where Docker images and package repositories come from. Dockavel keeps the choice visible instead of hiding fallback behavior.</p>
+          <code class="inline-command">./dockavel source:test</code>
+        </div>
+
+        <div class="source-list reveal reveal-delay-1">
+          <div class="source-item active"><span class="source-radio"></span><div><strong>Official / Global</strong><small>Docker Hub · Debian · Packagist · npm</small></div><span class="source-state">READY</span></div>
+          <div class="source-item"><span class="source-radio"></span><div><strong>Iran / IranServer</strong><small>Docker · Debian · Composer · npm</small></div><span class="source-state">READY</span></div>
+          <div class="source-item"><span class="source-radio"></span><div><strong>Iran / Runflare</strong><small>Regional mirror preset</small></div><span class="source-state">OPTION</span></div>
+          <div class="source-item"><span class="source-radio"></span><div><strong>China</strong><small>DaoCloud · TUNA · Aliyun · npmmirror</small></div><span class="source-state">OPTION</span></div>
+          <div class="source-item"><span class="source-radio"></span><div><strong>Custom</strong><small data-i18n="sources.custom">Bring your own endpoints</small></div><span class="source-state">CUSTOM</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell quick-start-section" id="quick-start">
+      <div class="container quick-start-wrap reveal">
+        <div class="quick-copy">
+          <span class="section-kicker" data-i18n="quick.kicker">Quick start</span>
+          <h2 data-i18n="quick.title">From clone to local stack in a few commands.</h2>
+          <p data-i18n="quick.text">The installer handles source selection, runtimes, databases and optional services interactively.</p>
+          <a class="text-link" href="./docs/" data-i18n="quick.docs">Read the installation guide →</a>
+        </div>
+
+        <div class="quick-terminal">
+          <div class="quick-terminal-bar"><span></span><span></span><span></span><small>bash</small></div>
+          <pre><code><span class="prompt">$</span> git clone https://github.com/AfshinEfati/dockavel.git
+<span class="prompt">$</span> cd dockavel
+<span class="prompt">$</span> chmod +x setup.sh dockavel
+<span class="prompt">$</span> ./setup.sh
+
+<span class="code-comment"># after setup</span>
+<span class="prompt">$</span> ./dockavel doctor
+<span class="prompt">$</span> ./dockavel project:add</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell closing-section">
+      <div class="container closing-card reveal">
+        <span class="closing-mark">&gt;_</span>
+        <div>
+          <h2 data-i18n="closing.title">More capability. Less configuration.</h2>
+          <p data-i18n="closing.text">Dockavel is growing around the workflows developers actually repeat.</p>
+        </div>
+        <a class="button button-primary" href="https://github.com/AfshinEfati/dockavel" target="_blank" rel="noreferrer">
+          <span data-i18n="closing.button">Explore Dockavel</span><span>→</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-wrap">
+      <a class="brand footer-brand" href="#top"><span class="brand-mark">&gt;_</span><span class="brand-name">dockavel</span></a>
+      <p data-i18n="footer.text">A lightweight multi-project development stack for Laravel and Node.js.</p>
+      <div class="footer-links">
+        <a href="./docs/" data-i18n="nav.docs">Docs</a>
+        <a href="https://github.com/AfshinEfati/dockavel" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./assets/js/app.js"></script>
+</body>
+</html>
