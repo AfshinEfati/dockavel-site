@@ -35,6 +35,23 @@
     }).join('');
   }
 
+  function normalizeCommandPageTitles() {
+    if (docId !== 'commands') return;
+
+    body.dataset.titleEn = 'CLI & Shortcuts';
+    body.dataset.titleFa = 'CLI و Shortcutها';
+
+    const enKicker = document.querySelector('.lang-en .doc-kicker');
+    const enTitle = document.querySelector('.lang-en h1');
+    const faKicker = document.querySelector('.lang-fa .doc-kicker');
+    const faTitle = document.querySelector('.lang-fa h1');
+
+    if (enKicker) enKicker.textContent = 'CLI WORKFLOW';
+    if (enTitle) enTitle.textContent = 'Global CLI, shortcuts and project commands';
+    if (faKicker) faKicker.textContent = 'CLI WORKFLOW';
+    if (faTitle) faTitle.textContent = 'Global CLI، Shortcutها و دستورات پروژه';
+  }
+
   function ensureShortcutSpotlight() {
     if (docId !== 'overview' || document.querySelector('.docs-shortcut-spotlight')) return;
 
@@ -66,6 +83,7 @@
     html.lang = language;
     html.dir = language === 'fa' ? 'rtl' : 'ltr';
     renderSidebar();
+    normalizeCommandPageTitles();
     ensureShortcutSpotlight();
     if (switcher) {
       switcher.innerHTML = language === 'fa' ? '<span>EN</span> / <b>فا</b>' : '<b>EN</b> / <span>فا</span>';
