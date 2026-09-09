@@ -13,6 +13,7 @@
     ['overview', '', 'Overview', 'نمای کلی'],
     ['projects', 'projects/', 'Project Manager', 'مدیریت پروژه'],
     ['commands', 'commands/', 'CLI & Shortcuts', 'CLI و Shortcutها'],
+    ['workflows', 'workflows/', 'Smart Workflows', 'Workflowهای هوشمند'],
     ['network', 'network/', 'Sources & Diagnostics', 'Source و Diagnostics'],
     ['stack', 'stack/', 'Stack & Runtimes', 'استک و Runtimeها'],
     ['troubleshooting', 'troubleshooting/', 'Troubleshooting', 'رفع اشکال'],
@@ -52,29 +53,51 @@
     if (faTitle) faTitle.textContent = 'Global CLI، Shortcutها و دستورات پروژه';
   }
 
-  function ensureShortcutSpotlight() {
-    if (docId !== 'overview' || document.querySelector('.docs-shortcut-spotlight')) return;
+  function ensureOverviewSpotlights() {
+    if (docId !== 'overview') return;
 
     const enMeta = document.querySelector('.lang-en .doc-meta');
     const faMeta = document.querySelector('.lang-fa .doc-meta');
 
-    enMeta?.insertAdjacentHTML('afterend', `
-      <div class="notice info docs-shortcut-spotlight">
-        <span>&gt;_</span>
-        <div>
-          <strong>Global CLI & terminal shortcuts are available</strong>
-          <p>Install once, then use <code>ds my-api</code>, <code>da my-api migrate</code>, <code>dco my-api install</code>, <code>dn frontend run dev</code> and <code>dh</code> instead of long Docker commands. <a href="${docsRoot}commands/">Open CLI & Shortcuts →</a></p>
-        </div>
-      </div>`);
+    if (!document.querySelector('.docs-shortcut-spotlight')) {
+      enMeta?.insertAdjacentHTML('afterend', `
+        <div class="notice info docs-shortcut-spotlight">
+          <span>&gt;_</span>
+          <div>
+            <strong>Global CLI & terminal shortcuts are available</strong>
+            <p>Install once, then use <code>ds my-api</code>, <code>da my-api migrate</code>, <code>dco my-api install</code>, <code>dn frontend run dev</code> and <code>dh</code> instead of long Docker commands. <a href="${docsRoot}commands/">Open CLI & Shortcuts →</a></p>
+          </div>
+        </div>`);
 
-    faMeta?.insertAdjacentHTML('afterend', `
-      <div class="notice info docs-shortcut-spotlight">
-        <span>&gt;_</span>
-        <div>
-          <strong>Global CLI و Shortcutهای ترمینال فعال هستند</strong>
-          <p>یک‌بار نصب کن و بعد به‌جای دستورهای طولانی Docker از <code>ds my-api</code>، <code>da my-api migrate</code>، <code>dco my-api install</code>، <code>dn frontend run dev</code> و <code>dh</code> استفاده کن. <a href="${docsRoot}commands/">رفتن به CLI و Shortcutها ←</a></p>
-        </div>
-      </div>`);
+      faMeta?.insertAdjacentHTML('afterend', `
+        <div class="notice info docs-shortcut-spotlight">
+          <span>&gt;_</span>
+          <div>
+            <strong>Global CLI و Shortcutهای ترمینال فعال هستند</strong>
+            <p>یک‌بار نصب کن و بعد به‌جای دستورهای طولانی Docker از <code>ds my-api</code>، <code>da my-api migrate</code>، <code>dco my-api install</code>، <code>dn frontend run dev</code> و <code>dh</code> استفاده کن. <a href="${docsRoot}commands/">رفتن به CLI و Shortcutها ←</a></p>
+          </div>
+        </div>`);
+    }
+
+    if (!document.querySelector('.docs-workflow-spotlight')) {
+      document.querySelector('.lang-en .docs-shortcut-spotlight')?.insertAdjacentHTML('afterend', `
+        <div class="notice info docs-workflow-spotlight">
+          <span>✓</span>
+          <div>
+            <strong>Smart project workflows</strong>
+            <p>Detect project requirements with <code>dpd</code>, check a registered project with <code>dpc</code>, and use safe database helpers such as <code>dbs</code> and <code>dbx</code>. <a href="${docsRoot}workflows/">Open Smart Workflows →</a></p>
+          </div>
+        </div>`);
+
+      document.querySelector('.lang-fa .docs-shortcut-spotlight')?.insertAdjacentHTML('afterend', `
+        <div class="notice info docs-workflow-spotlight">
+          <span>✓</span>
+          <div>
+            <strong>Workflowهای هوشمند پروژه</strong>
+            <p>با <code>dpd</code> نیازمندی‌های پروژه را تشخیص بده، با <code>dpc</code> سلامت پروژه را بررسی کن و از helperهای امن دیتابیس مثل <code>dbs</code> و <code>dbx</code> استفاده کن. <a href="${docsRoot}workflows/">رفتن به Workflowهای هوشمند ←</a></p>
+          </div>
+        </div>`);
+    }
   }
 
   function applyLanguage(next) {
@@ -84,7 +107,7 @@
     html.dir = language === 'fa' ? 'rtl' : 'ltr';
     renderSidebar();
     normalizeCommandPageTitles();
-    ensureShortcutSpotlight();
+    ensureOverviewSpotlights();
     if (switcher) {
       switcher.innerHTML = language === 'fa' ? '<span>EN</span> / <b>فا</b>' : '<b>EN</b> / <span>فا</span>';
     }
