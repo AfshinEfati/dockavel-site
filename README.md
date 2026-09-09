@@ -29,16 +29,20 @@ The landing page presents the current Dockavel product surface:
 - PHP 8.2, 8.3, 8.4 and 8.5 side by side
 - interactive `setup.sh` and incremental stack changes
 - Project Manager: add, list, edit and remove
+- smart project detection and runtime/service suggestions
+- read-only project health checks
 - project-aware shell / Artisan / Composer / npm command routing
-- optional global `dockavel` CLI plus short commands such as `ds`, `da`, `dco`, `dn`, `dpl`, `ddoc`, `dsrc` and `dh`
+- safe MySQL/PostgreSQL status, create, export and import helpers
+- optional global `dockavel` CLI plus short commands such as `ds`, `da`, `dco`, `dn`, `dpd`, `dpc`, `dbs`, `dbx`, `dpl`, `ddoc`, `dsrc`, `dv` and `dh`
 - full terminal help with per-command topics
 - minimal `.dockavel.yml` metadata
 - Nginx project routing and rollback-aware project changes
-- `doctor` environment/stack diagnostics
+- `doctor` environment/stack diagnostics with project-registry and proxy hints
 - `source:test` connectivity diagnostics
 - Official, IranServer, Runflare, China and Custom source presets
 - MySQL, PostgreSQL, Redis, Node.js, phpMyAdmin and pgAdmin profiles
 - data-safety behavior and hosts-file ownership
+- version/changelog foundation
 - quick start
 - current roadmap, clearly separated from released features
 
@@ -51,6 +55,7 @@ docs/
 ├── index.html             # Overview / getting started
 ├── projects/              # Project Manager
 ├── commands/              # global CLI + shortcuts + shell / Artisan / Composer / npm routing
+├── workflows/             # smart detection + project checks + database helpers + version
 ├── network/               # Download sources + Doctor + source:test
 ├── stack/                 # PHP, Node, databases, services and ports
 ├── troubleshooting/       # Diagnostics, local domains and data safety
