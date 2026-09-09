@@ -2,11 +2,12 @@
 
 Official landing page and documentation source for [Dockavel](https://github.com/AfshinEfati/dockavel).
 
+**Website:** https://afshinefati.github.io/dockavel-site/  
+**Documentation:** https://afshinefati.github.io/dockavel-site/docs/
+
 The website lives in a separate repository so developers cloning Dockavel receive the development stack only, not the website assets and documentation source.
 
-## Current design branch
-
-`feature/initial-design`
+## Design
 
 The current design is intentionally:
 
@@ -18,11 +19,11 @@ The current design is intentionally:
 - responsive for desktop and mobile
 - dependency-light: static HTML, CSS and JavaScript
 - CDN-backed fonts
-- compatible with a project-style GitHub Pages URL today and a custom domain later
+- compatible with the current GitHub Pages project URL and a future custom domain
 
 ## Landing page coverage
 
-The landing page now presents the current Dockavel product surface:
+The landing page presents the current Dockavel product surface:
 
 - multi-project Laravel + Node.js workflow
 - PHP 8.2, 8.3, 8.4 and 8.5 side by side
@@ -54,6 +55,32 @@ docs/
 
 Every documentation page contains both English and Persian content and uses the same saved language preference as the landing page.
 
+## Documentation sync policy
+
+The Dockavel runtime repository and this website are maintained as one public product surface.
+
+Whenever a user-facing Dockavel feature, service, runtime, source preset, CLI command, configuration option, port, workflow or behavior is added or materially changed:
+
+1. update `README.md` and `README.fa.md` in `AfshinEfati/dockavel` when the change belongs in the runtime overview,
+2. update the matching page under `docs/` in this repository,
+3. update the landing page when the change is important enough to be part of the product overview,
+4. keep English and Persian documentation aligned,
+5. update the sitemap when a new documentation route is added.
+
+Internal refactors and fixes that do not change user-facing behavior do not require landing-page changes.
+
+## SEO and sharing
+
+The published site includes:
+
+- favicon and web manifest
+- canonical URLs
+- Open Graph metadata
+- Twitter/X large-card metadata
+- social preview image
+- `robots.txt`
+- `sitemap.xml`
+
 ## Local preview
 
 From the repository root:
@@ -84,4 +111,12 @@ This repository contains the landing page, visual assets and documentation so no
 
 ## Publishing
 
-GitHub Pages publishing is intentionally not enabled by the design branch. The repository can stay private during design/review; publishing and repository visibility can be decided separately.
+GitHub Pages is published from the `main` branch.
+
+Current URL:
+
+```text
+https://afshinefati.github.io/dockavel-site/
+```
+
+A custom domain can replace the project-style GitHub Pages URL later without moving the site source back into the runtime repository.
