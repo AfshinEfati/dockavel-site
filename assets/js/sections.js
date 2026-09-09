@@ -40,13 +40,13 @@
     "safety.remove": "Removes metadata + Nginx registration only",
     "safety.hosts": "Hosts file stays under your control",
     "safety.hostsText": "Dockavel prints the required 127.0.0.1 entry instead of editing Windows or Linux hosts automatically.",
-    "roadmap.kicker": "Project-aware commands",
-    "roadmap.title": "Everyday commands now follow project metadata.",
-    "roadmap.text": "Shell, Artisan, Composer and npm are routed to the registered project's runtime and working directory, so developers do not need to remember Compose service or container names.",
-    "roadmap.note": "Current productivity layer · project-aware routing",
+    "roadmap.kicker": "Global CLI + shortcuts",
+    "roadmap.title": "Everyday Dockavel commands can now stay short.",
+    "roadmap.text": "Install the global CLI once, then use project-aware shortcuts such as ds, da, dco and dn without remembering Docker or Compose details.",
+    "roadmap.note": "Current productivity layer · global CLI + shortcuts",
     "docscta.kicker": "Documentation",
     "docscta.title": "The landing page stays small. The details live in Docs.",
-    "docscta.text": "Installation, source presets, Project Manager, project-aware commands, diagnostics, PHP and Node runtimes, databases, local domains, data safety and troubleshooting are documented separately.",
+    "docscta.text": "Installation, global CLI shortcuts, source presets, Project Manager, project-aware commands, diagnostics, PHP and Node runtimes, databases, local domains, data safety and troubleshooting are documented separately.",
     "docscta.button": "Open documentation →"
   });
 
@@ -86,13 +86,13 @@
     "safety.remove": "فقط metadata و Nginx registration را حذف می‌کند",
     "safety.hosts": "فایل hosts تحت کنترل خودت می‌ماند",
     "safety.hostsText": "Dockavel فقط entry لازم 127.0.0.1 را چاپ می‌کند و hosts ویندوز یا لینوکس را خودکار ویرایش نمی‌کند.",
-    "roadmap.kicker": "دستورهای Project-aware",
-    "roadmap.title": "دستورهای روزمره حالا از metadata پروژه پیروی می‌کنند.",
-    "roadmap.text": "Shell، Artisan، Composer و npm به runtime و مسیر پروژه ثبت‌شده route می‌شوند تا دیگر لازم نباشد اسم Compose service یا container را حفظ کنی.",
-    "roadmap.note": "لایه بهره‌وری فعلی · routing بر اساس پروژه",
+    "roadmap.kicker": "Global CLI + Shortcutها",
+    "roadmap.title": "دستورهای روزمره Dockavel حالا می‌توانند خیلی کوتاه باشند.",
+    "roadmap.text": "Global CLI را یک‌بار نصب کن و بعد با shortcutهایی مثل ds، da، dco و dn کار کن؛ بدون حفظ کردن جزئیات Docker و Compose.",
+    "roadmap.note": "لایه بهره‌وری فعلی · Global CLI + Shortcutها",
     "docscta.kicker": "مستندات",
     "docscta.title": "Landing جمع‌وجور می‌ماند؛ جزئیات داخل Docs است.",
-    "docscta.text": "نصب، source presetها، Project Manager، دستورهای Project-aware، Diagnostics، PHP و Node، دیتابیس‌ها، دامنه‌های local، امنیت داده‌ها و troubleshooting جداگانه مستند شده‌اند.",
+    "docscta.text": "نصب، Global CLI و shortcutها، source presetها، Project Manager، دستورهای Project-aware، Diagnostics، PHP و Node، دیتابیس‌ها، دامنه‌های local، امنیت داده‌ها و troubleshooting جداگانه مستند شده‌اند.",
     "docscta.button": "باز کردن مستندات ←"
   });
 
@@ -141,13 +141,13 @@
         </div>
         <div class="diagnostic-grid">
           <article class="diagnostic-card reveal">
-            <div class="diagnostic-command">$ ./dockavel doctor</div>
+            <div class="diagnostic-command">$ ddoc</div>
             <h3 data-i18n="diagnostics.doctorTitle">Environment Doctor</h3>
             <p data-i18n="diagnostics.doctorText">Checks Docker, Compose, WSL, ports, sources and container health.</p>
             <div class="diagnostic-list"><span>Docker daemon <b>✓</b></span><span>Port 80 <b>✓</b></span><span>php85 <b>healthy</b></span><span>postgres <b>running</b></span></div>
           </article>
           <article class="diagnostic-card reveal reveal-delay-1">
-            <div class="diagnostic-command">$ ./dockavel source:test</div>
+            <div class="diagnostic-command">$ dsrc</div>
             <h3 data-i18n="diagnostics.sourceTitle">Source Test</h3>
             <p data-i18n="diagnostics.sourceText">Probes Docker, Debian, Composer and npm with response details.</p>
             <div class="diagnostic-list"><span>Docker registry <b>HTTP 401</b></span><span>Debian <b>HTTP 200</b></span><span>Composer <b>HTTP 200</b></span><span>npm <b>HTTP 200</b></span></div>
@@ -186,7 +186,7 @@
         </div>
         <div class="safety-terminal reveal reveal-delay-1">
           <div><code>docker compose down</code><span class="safe-state">SAFE</span><small data-i18n="safety.down">Stops containers · keeps named volumes</small></div>
-          <div><code>./dockavel project:remove my-api</code><span class="safe-state">SAFE</span><small data-i18n="safety.remove">Removes metadata + Nginx registration only</small></div>
+          <div><code>dpr my-api</code><span class="safe-state">SAFE</span><small data-i18n="safety.remove">Removes metadata + Nginx registration only</small></div>
           <div class="danger-row"><code>docker compose down -v</code><span class="danger-state">DESTRUCTIVE</span><small>removes persistent volumes</small></div>
         </div>
       </div>
@@ -195,18 +195,18 @@
     <section class="section-shell roadmap-section">
       <div class="container roadmap-card reveal">
         <div>
-          <span class="section-kicker" data-i18n="roadmap.kicker">Project-aware commands</span>
-          <h2 data-i18n="roadmap.title">Everyday commands now follow project metadata.</h2>
-          <p data-i18n="roadmap.text">Shell, Artisan, Composer and npm are routed to the registered project's runtime and working directory.</p>
-          <span class="roadmap-note" data-i18n="roadmap.note">Current productivity layer · project-aware routing</span>
+          <span class="section-kicker" data-i18n="roadmap.kicker">Global CLI + shortcuts</span>
+          <h2 data-i18n="roadmap.title">Everyday Dockavel commands can now stay short.</h2>
+          <p data-i18n="roadmap.text">Install the global CLI once, then use project-aware shortcuts without remembering Docker or Compose details.</p>
+          <span class="roadmap-note" data-i18n="roadmap.note">Current productivity layer · global CLI + shortcuts</span>
         </div>
-        <div class="roadmap-commands"><code>./dockavel shell my-api</code><code>./dockavel artisan my-api migrate</code><code>./dockavel composer my-api install</code><code>./dockavel npm frontend install</code></div>
+        <div class="roadmap-commands"><code>ds my-api</code><code>da my-api migrate</code><code>dco my-api install</code><code>dn frontend run dev</code></div>
       </div>
     </section>
 
     <section class="section-shell docs-cta-section">
       <div class="container docs-cta-card reveal">
-        <div><span class="section-kicker" data-i18n="docscta.kicker">Documentation</span><h2 data-i18n="docscta.title">The landing page stays small. The details live in Docs.</h2><p data-i18n="docscta.text">Installation, source presets, Project Manager, project-aware commands, diagnostics and troubleshooting are documented separately.</p></div>
+        <div><span class="section-kicker" data-i18n="docscta.kicker">Documentation</span><h2 data-i18n="docscta.title">The landing page stays small. The details live in Docs.</h2><p data-i18n="docscta.text">Installation, global CLI shortcuts, source presets, Project Manager, project-aware commands, diagnostics and troubleshooting are documented separately.</p></div>
         <a class="button button-primary" href="./docs/"><span data-i18n="docscta.button">Open documentation →</span></a>
       </div>
     </section>`;
