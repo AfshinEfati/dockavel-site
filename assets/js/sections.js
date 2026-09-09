@@ -40,13 +40,13 @@
     "safety.remove": "Removes metadata + Nginx registration only",
     "safety.hosts": "Hosts file stays under your control",
     "safety.hostsText": "Dockavel prints the required 127.0.0.1 entry instead of editing Windows or Linux hosts automatically.",
-    "roadmap.kicker": "Next productivity layer",
-    "roadmap.title": "Project metadata is becoming the shortcut to everyday commands.",
-    "roadmap.text": "The next planned commands use the project runtime mapping so developers do not need to remember Compose service names or container names.",
-    "roadmap.note": "Planned · not part of the current release yet",
+    "roadmap.kicker": "Project-aware commands",
+    "roadmap.title": "Everyday commands now follow project metadata.",
+    "roadmap.text": "Shell, Artisan, Composer and npm are routed to the registered project's runtime and working directory, so developers do not need to remember Compose service or container names.",
+    "roadmap.note": "Current productivity layer · project-aware routing",
     "docscta.kicker": "Documentation",
     "docscta.title": "The landing page stays small. The details live in Docs.",
-    "docscta.text": "Installation, source presets, Project Manager, diagnostics, PHP and Node runtimes, databases, local domains, data safety and troubleshooting are documented separately.",
+    "docscta.text": "Installation, source presets, Project Manager, project-aware commands, diagnostics, PHP and Node runtimes, databases, local domains, data safety and troubleshooting are documented separately.",
     "docscta.button": "Open documentation →"
   });
 
@@ -86,13 +86,13 @@
     "safety.remove": "فقط metadata و Nginx registration را حذف می‌کند",
     "safety.hosts": "فایل hosts تحت کنترل خودت می‌ماند",
     "safety.hostsText": "Dockavel فقط entry لازم 127.0.0.1 را چاپ می‌کند و hosts ویندوز یا لینوکس را خودکار ویرایش نمی‌کند.",
-    "roadmap.kicker": "لایه بعدی بهره‌وری",
-    "roadmap.title": "metadata پروژه قرار است میانبر دستورهای روزمره شود.",
-    "roadmap.text": "دستورهای بعدی از runtime ثبت‌شده پروژه استفاده می‌کنند تا دیگر لازم نباشد اسم Compose service یا container را حفظ کنی.",
-    "roadmap.note": "برنامه‌ریزی‌شده · هنوز بخشی از نسخه فعلی نیست",
+    "roadmap.kicker": "دستورهای Project-aware",
+    "roadmap.title": "دستورهای روزمره حالا از metadata پروژه پیروی می‌کنند.",
+    "roadmap.text": "Shell، Artisan، Composer و npm به runtime و مسیر پروژه ثبت‌شده route می‌شوند تا دیگر لازم نباشد اسم Compose service یا container را حفظ کنی.",
+    "roadmap.note": "لایه بهره‌وری فعلی · routing بر اساس پروژه",
     "docscta.kicker": "مستندات",
     "docscta.title": "Landing جمع‌وجور می‌ماند؛ جزئیات داخل Docs است.",
-    "docscta.text": "نصب، source presetها، Project Manager، Diagnostics، PHP و Node، دیتابیس‌ها، دامنه‌های local، امنیت داده‌ها و troubleshooting جداگانه مستند شده‌اند.",
+    "docscta.text": "نصب، source presetها، Project Manager، دستورهای Project-aware، Diagnostics، PHP و Node، دیتابیس‌ها، دامنه‌های local، امنیت داده‌ها و troubleshooting جداگانه مستند شده‌اند.",
     "docscta.button": "باز کردن مستندات ←"
   });
 
@@ -195,10 +195,10 @@
     <section class="section-shell roadmap-section">
       <div class="container roadmap-card reveal">
         <div>
-          <span class="section-kicker" data-i18n="roadmap.kicker">Next productivity layer</span>
-          <h2 data-i18n="roadmap.title">Project metadata is becoming the shortcut to everyday commands.</h2>
-          <p data-i18n="roadmap.text">The next planned commands use the project runtime mapping.</p>
-          <span class="roadmap-note" data-i18n="roadmap.note">Planned · not part of the current release yet</span>
+          <span class="section-kicker" data-i18n="roadmap.kicker">Project-aware commands</span>
+          <h2 data-i18n="roadmap.title">Everyday commands now follow project metadata.</h2>
+          <p data-i18n="roadmap.text">Shell, Artisan, Composer and npm are routed to the registered project's runtime and working directory.</p>
+          <span class="roadmap-note" data-i18n="roadmap.note">Current productivity layer · project-aware routing</span>
         </div>
         <div class="roadmap-commands"><code>./dockavel shell my-api</code><code>./dockavel artisan my-api migrate</code><code>./dockavel composer my-api install</code><code>./dockavel npm frontend install</code></div>
       </div>
@@ -206,7 +206,7 @@
 
     <section class="section-shell docs-cta-section">
       <div class="container docs-cta-card reveal">
-        <div><span class="section-kicker" data-i18n="docscta.kicker">Documentation</span><h2 data-i18n="docscta.title">The landing page stays small. The details live in Docs.</h2><p data-i18n="docscta.text">Installation, source presets, Project Manager, diagnostics and troubleshooting are documented separately.</p></div>
+        <div><span class="section-kicker" data-i18n="docscta.kicker">Documentation</span><h2 data-i18n="docscta.title">The landing page stays small. The details live in Docs.</h2><p data-i18n="docscta.text">Installation, source presets, Project Manager, project-aware commands, diagnostics and troubleshooting are documented separately.</p></div>
         <a class="button button-primary" href="./docs/"><span data-i18n="docscta.button">Open documentation →</span></a>
       </div>
     </section>`;

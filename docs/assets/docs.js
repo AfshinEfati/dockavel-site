@@ -12,6 +12,7 @@
   const pages = [
     ['overview', '', 'Overview', 'نمای کلی'],
     ['projects', 'projects/', 'Project Manager', 'مدیریت پروژه'],
+    ['commands', 'commands/', 'Project Commands', 'دستورات پروژه'],
     ['network', 'network/', 'Sources & Diagnostics', 'Source و Diagnostics'],
     ['stack', 'stack/', 'Stack & Runtimes', 'استک و Runtimeها'],
     ['troubleshooting', 'troubleshooting/', 'Troubleshooting', 'رفع اشکال'],

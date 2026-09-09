@@ -29,6 +29,7 @@ The landing page presents the current Dockavel product surface:
 - PHP 8.2, 8.3, 8.4 and 8.5 side by side
 - interactive `setup.sh` and incremental stack changes
 - Project Manager: add, list, edit and remove
+- project-aware shell / Artisan / Composer / npm command routing
 - minimal `.dockavel.yml` metadata
 - Nginx project routing and rollback-aware project changes
 - `doctor` environment/stack diagnostics
@@ -47,6 +48,7 @@ Documentation is intentionally separate from the landing page and currently has 
 docs/
 ├── index.html             # Overview / getting started
 ├── projects/              # Project Manager
+├── commands/              # shell / Artisan / Composer / npm routing
 ├── network/               # Download sources + Doctor + source:test
 ├── stack/                 # PHP, Node, databases, services and ports
 ├── troubleshooting/       # Diagnostics, local domains and data safety
