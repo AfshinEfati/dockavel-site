@@ -100,6 +100,40 @@
     }
   }
 
+  function ensureReferenceWorkflowCommands() {
+    if (docId !== 'reference' || document.querySelector('.reference-smart-workflows')) return;
+
+    document.querySelector('.lang-en .page-nav')?.insertAdjacentHTML('beforebegin', `
+      <div class="reference-smart-workflows">
+        <h2>Smart workflow commands</h2>
+        <div class="table-wrap"><table><thead><tr><th>Command</th><th>Purpose</th></tr></thead><tbody>
+          <tr><td><code>dockavel project:detect &lt;directory&gt;</code> / <code>dpd</code></td><td>Read-only project requirement detection</td></tr>
+          <tr><td><code>dockavel project:check &lt;project&gt;</code> / <code>dpc</code></td><td>Read-only registered project health check</td></tr>
+          <tr><td><code>dockavel db:status &lt;project&gt;</code> / <code>dbs</code></td><td>Check configured database presence</td></tr>
+          <tr><td><code>dockavel db:create &lt;project&gt;</code> / <code>dbc</code></td><td>Create configured database if missing</td></tr>
+          <tr><td><code>dockavel db:export &lt;project&gt; [file.sql]</code> / <code>dbx</code></td><td>Export without overwriting an existing file</td></tr>
+          <tr><td><code>dockavel db:import &lt;project&gt; &lt;file.sql&gt;</code> / <code>dbi</code></td><td>Import after explicit confirmation</td></tr>
+          <tr><td><code>dockavel version</code> / <code>dv</code></td><td>Show repository version metadata</td></tr>
+        </tbody></table></div>
+        <p>See <a href="${docsRoot}workflows/">Smart Workflows</a> for behavior and safety details.</p>
+      </div>`);
+
+    document.querySelector('.lang-fa .page-nav')?.insertAdjacentHTML('beforebegin', `
+      <div class="reference-smart-workflows">
+        <h2>دستورات Workflow هوشمند</h2>
+        <div class="table-wrap"><table><thead><tr><th>دستور</th><th>کاربرد</th></tr></thead><tbody>
+          <tr><td><code>dockavel project:detect &lt;directory&gt;</code> / <code>dpd</code></td><td>تشخیص read-only نیازمندی‌های پروژه</td></tr>
+          <tr><td><code>dockavel project:check &lt;project&gt;</code> / <code>dpc</code></td><td>بررسی read-only سلامت پروژه ثبت‌شده</td></tr>
+          <tr><td><code>dockavel db:status &lt;project&gt;</code> / <code>dbs</code></td><td>بررسی وجود دیتابیس تنظیم‌شده</td></tr>
+          <tr><td><code>dockavel db:create &lt;project&gt;</code> / <code>dbc</code></td><td>ساخت دیتابیس در صورت نبود</td></tr>
+          <tr><td><code>dockavel db:export &lt;project&gt; [file.sql]</code> / <code>dbx</code></td><td>Export بدون overwrite فایل موجود</td></tr>
+          <tr><td><code>dockavel db:import &lt;project&gt; &lt;file.sql&gt;</code> / <code>dbi</code></td><td>Import بعد از تأیید صریح</td></tr>
+          <tr><td><code>dockavel version</code> / <code>dv</code></td><td>نمایش version repository</td></tr>
+        </tbody></table></div>
+        <p>برای جزئیات رفتار و ایمنی، صفحه <a href="${docsRoot}workflows/">Workflowهای هوشمند</a> را ببین.</p>
+      </div>`);
+  }
+
   function applyLanguage(next) {
     language = next;
     localStorage.setItem('dockavel-language', language);
@@ -108,6 +142,7 @@
     renderSidebar();
     normalizeCommandPageTitles();
     ensureOverviewSpotlights();
+    ensureReferenceWorkflowCommands();
     if (switcher) {
       switcher.innerHTML = language === 'fa' ? '<span>EN</span> / <b>فا</b>' : '<b>EN</b> / <span>فا</span>';
     }
