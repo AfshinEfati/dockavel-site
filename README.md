@@ -30,6 +30,8 @@ The landing page presents the current Dockavel product surface:
 - interactive `setup.sh` and incremental stack changes
 - Project Manager: add, list, edit and remove
 - project-aware shell / Artisan / Composer / npm command routing
+- optional global `dockavel` CLI plus short commands such as `ds`, `da`, `dco`, `dn`, `dpl`, `ddoc`, `dsrc` and `dh`
+- full terminal help with per-command topics
 - minimal `.dockavel.yml` metadata
 - Nginx project routing and rollback-aware project changes
 - `doctor` environment/stack diagnostics
@@ -48,7 +50,7 @@ Documentation is intentionally separate from the landing page and currently has 
 docs/
 ├── index.html             # Overview / getting started
 ├── projects/              # Project Manager
-├── commands/              # shell / Artisan / Composer / npm routing
+├── commands/              # global CLI + shortcuts + shell / Artisan / Composer / npm routing
 ├── network/               # Download sources + Doctor + source:test
 ├── stack/                 # PHP, Node, databases, services and ports
 ├── troubleshooting/       # Diagnostics, local domains and data safety
