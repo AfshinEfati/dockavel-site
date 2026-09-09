@@ -12,7 +12,7 @@
   const pages = [
     ['overview', '', 'Overview', 'نمای کلی'],
     ['projects', 'projects/', 'Project Manager', 'مدیریت پروژه'],
-    ['commands', 'commands/', 'Project Commands', 'دستورات پروژه'],
+    ['commands', 'commands/', 'CLI & Shortcuts', 'CLI و Shortcutها'],
     ['network', 'network/', 'Sources & Diagnostics', 'Source و Diagnostics'],
     ['stack', 'stack/', 'Stack & Runtimes', 'استک و Runtimeها'],
     ['troubleshooting', 'troubleshooting/', 'Troubleshooting', 'رفع اشکال'],
@@ -35,12 +35,56 @@
     }).join('');
   }
 
+  function normalizeCommandPageTitles() {
+    if (docId !== 'commands') return;
+
+    body.dataset.titleEn = 'CLI & Shortcuts';
+    body.dataset.titleFa = 'CLI و Shortcutها';
+
+    const enKicker = document.querySelector('.lang-en .doc-kicker');
+    const enTitle = document.querySelector('.lang-en h1');
+    const faKicker = document.querySelector('.lang-fa .doc-kicker');
+    const faTitle = document.querySelector('.lang-fa h1');
+
+    if (enKicker) enKicker.textContent = 'CLI WORKFLOW';
+    if (enTitle) enTitle.textContent = 'Global CLI, shortcuts and project commands';
+    if (faKicker) faKicker.textContent = 'CLI WORKFLOW';
+    if (faTitle) faTitle.textContent = 'Global CLI، Shortcutها و دستورات پروژه';
+  }
+
+  function ensureShortcutSpotlight() {
+    if (docId !== 'overview' || document.querySelector('.docs-shortcut-spotlight')) return;
+
+    const enMeta = document.querySelector('.lang-en .doc-meta');
+    const faMeta = document.querySelector('.lang-fa .doc-meta');
+
+    enMeta?.insertAdjacentHTML('afterend', `
+      <div class="notice info docs-shortcut-spotlight">
+        <span>&gt;_</span>
+        <div>
+          <strong>Global CLI & terminal shortcuts are available</strong>
+          <p>Install once, then use <code>ds my-api</code>, <code>da my-api migrate</code>, <code>dco my-api install</code>, <code>dn frontend run dev</code> and <code>dh</code> instead of long Docker commands. <a href="${docsRoot}commands/">Open CLI & Shortcuts →</a></p>
+        </div>
+      </div>`);
+
+    faMeta?.insertAdjacentHTML('afterend', `
+      <div class="notice info docs-shortcut-spotlight">
+        <span>&gt;_</span>
+        <div>
+          <strong>Global CLI و Shortcutهای ترمینال فعال هستند</strong>
+          <p>یک‌بار نصب کن و بعد به‌جای دستورهای طولانی Docker از <code>ds my-api</code>، <code>da my-api migrate</code>، <code>dco my-api install</code>، <code>dn frontend run dev</code> و <code>dh</code> استفاده کن. <a href="${docsRoot}commands/">رفتن به CLI و Shortcutها ←</a></p>
+        </div>
+      </div>`);
+  }
+
   function applyLanguage(next) {
     language = next;
     localStorage.setItem('dockavel-language', language);
     html.lang = language;
     html.dir = language === 'fa' ? 'rtl' : 'ltr';
     renderSidebar();
+    normalizeCommandPageTitles();
+    ensureShortcutSpotlight();
     if (switcher) {
       switcher.innerHTML = language === 'fa' ? '<span>EN</span> / <b>فا</b>' : '<b>EN</b> / <span>فا</span>';
     }

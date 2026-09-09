@@ -212,5 +212,9 @@ applyLanguage(currentLanguage);
 
 const expandedLanding = document.createElement('script');
 expandedLanding.src = './assets/js/sections.js';
-expandedLanding.defer = true;
+expandedLanding.addEventListener('load', () => {
+  const shortcutSpotlight = document.createElement('script');
+  shortcutSpotlight.src = './assets/js/shortcuts-spotlight.js';
+  document.body.appendChild(shortcutSpotlight);
+});
 document.body.appendChild(expandedLanding);
