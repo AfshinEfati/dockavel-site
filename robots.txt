@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://afshinefati.github.io/dockavel-site/sitemap.xml
